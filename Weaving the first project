@@ -1,0 +1,97 @@
+
+//MyKenteAlgorithm
+ 
+color[] kente = {#000000 ,#E6E6E6, #FFFFFF, #BFBFBF, #808080, #404040}; 
+color[] palette = kente;
+ 
+int s = 70;
+int d = 60;
+ 
+ 
+ 
+float x1 = random (width);
+float y1 = random (height);
+float easing1 = 8.3;
+ 
+ 
+float x2 = random (width);
+float y2 = random (height);
+float easing2 = .5;
+ 
+ 
+float x3 = random (width);
+float y3 = random (height);
+float easing3 = .7;
+ 
+ 
+ 
+void setup (){
+size (2400, 1900);
+//background (palette [0]);
+smooth ();
+noStroke (); 
+ 
+size (width, height);
+smooth ();
+strokeWeight (90);
+ 
+noCursor();
+ 
+ 
+ 
+for(int x=0; x < width; x +=s) {
+for(int y= 0; y< height; y += s) {
+  fill (palette[int(random(0, 6))]);
+  rect (x, y, s, s);
+}
+}
+}
+ 
+void draw() {
+fill (palette[int (int(random(0,6)))]);
+int x = int (random(width/s))*s;
+int y = int (random (height/s))*s;
+rect (x, y, s, s);
+ 
+//Circle 1
+ 
+fill (#ffbb00);
+ellipse (x1, y1, d+15, d+15);
+x1 += (mouseX - x1)*easing1;
+y1 += (mouseY - y1)*easing1;
+ 
+//Circle 2
+ 
+fill (#ffbb00);
+ellipse (x2, y2, d+10, d+10);
+x2 += (mouseX - x2)*easing2;
+y2 += (mouseY - y2)*easing2;
+ 
+//Circle 3
+ 
+fill (#ffbb00);
+ellipse (x3, y3, d+5, d+5);
+x3 += (mouseX - x3)*easing3;
+y3 += (mouseY - y3)*easing3;
+ 
+noStroke ();
+fill (palette [0]);
+ellipse (mouseX, mouseY, 200, 200);
+ 
+ 
+ 
+ 
+ 
+ 
+//}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+}
+ 
